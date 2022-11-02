@@ -9,6 +9,8 @@ import CreateProduct from './pages/createProduct/CreateProduct'
 import ProductUpdate from "./pages/productUpdate/ProductUpdate";
 import OrderList from "./pages/orderList/OrderList";
 import DetailsOrder from "./pages/detailsOrder/DetailsOrder";
+import CreateUser from "./pages/createUser/CreateUser";
+import UpdateUser from "./pages/updateUser/UpdateUser";
 import Login from "./pages/login/Login";
 import Message from "./pages/message/Message";
 import {useSelector} from 'react-redux'
@@ -39,6 +41,8 @@ function App() {
                         <Route path="/order/details/:id" element={ <DetailsOrder/>} />
                         <Route path="/message" element={<Message/>}/>
                         <Route path="/login" element={<Login/>}  />    
+                        <Route path="/user/create" element={<CreateUser/>}  />    
+                        <Route path="/user/update" element={<UpdateUser/>}  />    
                     </Routes>
                 </Box>
         </BrowserRouter>

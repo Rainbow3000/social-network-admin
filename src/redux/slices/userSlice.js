@@ -3,7 +3,7 @@ import { publicRequest,userRequest } from '../../requestMethod';
 
 export const getUsers = createAsyncThunk(
     'user/getUsers',async()=>{
-            const response = await userRequest.get('/user'); 
+            const response = await publicRequest.get('/user'); 
             return response.data; 
     }
 )
@@ -17,7 +17,7 @@ export const userLogin = createAsyncThunk(
 
 export const getUserStat = createAsyncThunk(
     'user/userStat', async()=>{
-        const response = await userRequest.get('/userStat'); 
+        const response = await userRequest.get('user/userStat'); 
         return response.data;
     }
 )
@@ -25,7 +25,7 @@ export const getUserStat = createAsyncThunk(
 const userSlice = createSlice({
     name:'user',
     initialState:{
-        users:[],
+        users:null,
         user: JSON.parse(localStorage.getItem('user')),
         isLogin:false,
         errorMessage:{}, 

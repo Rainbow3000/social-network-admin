@@ -3,16 +3,18 @@ import {Box,Grid} from '@mui/material'
 import Featured from '../../components/featured/Featured'
 import ListUser from '../../components/listUser/ListUser'
 import UserChart from '../../components/chart/UserChart'
+import {Link} from 'react-router-dom'
 import {useDispatch} from 'react-redux'; 
 import {useNavigate} from 'react-router-dom'
+
 import {getUsers,getUserStat} from '../../redux/slices/userSlice'
 const Home = () => {
   const dispatch = useDispatch(); 
   const navigate = useNavigate(); 
+
   useEffect(()=>{
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(!user || !user.isAdmin){
-         navigate('/login'); 
+    if(!JSON.parse(localStorage.getItem('user'))){
+      navigate('/login')
     }
   },[])
 
@@ -26,9 +28,10 @@ const Home = () => {
   
 
   return (
-    <Box sx={{width:"100%"}}>
+    <Box sx={{width:"100%",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <button style={{position:'absolute',width:'200px',height:'45px',backgroundColor:'blue',color:'white',border:'none',borderRadius:'5px',cursor:'pointer',right:'20px',top:'120px',fontSize:'20px'}}><Link to="/user/create">Thêm mới</Link></button>
         <Box sx={{display:"flex",justifyContent:'space-between',width:'100%',flexDirection:'column'}}>
-              <Featured/>
+              {/* <Featured/> */}
               <Box sx={{marginTop:5,padding:5}}>
                   <Grid spacing={2} container sx={{color:'black',display:'flex'}}>
                       <Grid item sx={{flex:1}}>
